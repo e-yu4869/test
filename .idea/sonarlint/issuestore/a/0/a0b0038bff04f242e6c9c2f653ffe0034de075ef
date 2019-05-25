@@ -1,0 +1,25 @@
+
+Isquid:S1066"/Merge this if statement with the enclosing one.(§ıíÍüÿÿÿÿ
+csquid:S2095"NUse try-with-resources or close this "FileOutputStream" in a "finally" clause.(„õ½‰
+1squid:S1220""Move this file to a named package.
+asquid:S00112"FDefine and throw a dedicated exception instead of using a generic one.(Šğ®…úÿÿÿÿ
+=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+Rsquid:S1197"8Move the array designator from the variable to the type.(¡şÏÖøÿÿÿÿ
+R
+squid:S106"9Replace this use of System.out or System.err by a logger.(ªõ»ùÿÿÿÿ
+R
+squid:S106"9Replace this use of System.out or System.err by a logger.(ô›¶¿şÿÿÿÿ
+M
+squid:S106"9Replace this use of System.out or System.err by a logger.(ùÖğÓ
+Dsquid:S2093"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ
+M
+squid:S106"9Replace this use of System.out or System.err by a logger.(µ¨„‹
+M
+squid:S106"9Replace this use of System.out or System.err by a logger.(ÆÀûı
+R
+squid:S106"9Replace this use of System.out or System.err by a logger.(¡ˆ¥şÿÿÿÿ
+?squid:S1181"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+L
+squid:S106"9Replace this use of System.out or System.err by a logger.(Çğõ"
+R
+squid:S106"9Replace this use of System.out or System.err by a logger.(×›£¾üÿÿÿÿ

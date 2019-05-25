@@ -1,0 +1,19 @@
+
+¦squid:UselessImportCheck"vRemove this unused import 'org.debugroom.mynavi.sample.continuous.integration.common.apinfra.exception.ErrorResponse'.(òÂšÿûÿÿÿÿ8˜û˜­-
+hsquid:UselessImportCheck("8Remove this unused import 'java.util.stream.Collectors'.(Óóº´úÿÿÿÿ8”™÷€­-
+squid:UselessImportCheck"mRemove this unused import 'org.debugroom.mynavi.sample.continuous.integration.common.web.model.UserResource'.(ªúÇøÿÿÿÿ8ş‹õƒ­-
+psquid:UselessImportCheck"@Remove this unused import 'org.springframework.http.HttpStatus'.(íŸ¤Šúÿÿÿÿ8˜û˜­-
+hsquid:S4488\"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(Şæ„Û8¹ô€­-
+‰squid:UselessImportCheck"YRemove this unused import 'org.springframework.web.bind.MethodArgumentNotValidException'.(Ñîœ¥ÿÿÿÿÿ8˜û˜­-
+³squid:UselessImportCheck"‚Remove this unused import 'org.debugroom.mynavi.sample.continuous.integration.common.apinfra.exception.BusinessExceptionResponse'.(¬ÈÏÒÿÿÿÿÿ8˜û˜­-
+fsquid:S4488N"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ŒÀ¢Ã8¹ô€­-
+fsquid:S4488C"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(š©îæ8¹ô€­-
+€squid:UselessImportCheck"URemove this unused import 'org.springframework.web.bind.annotation.ExceptionHandler'.(–Œ•¬8˜û˜­-
+fsquid:S4488H"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(¢Ö€«8¹ô€­-
+tsquid:UselessImportCheck"IRemove this unused import 'org.springframework.validation.BindException'.(¬€Ìü8˜û˜­-
+zsquid:UselessImportCheck!"JRemove this unused import 'org.springframework.web.client.RestOperations'.(ˆÊéüÿÿÿÿ8¹ô€­-
+squid:S14888"dImmediately return this expression instead of assigning it to the temporary variable "addUsersForm".(€À½8¹ô€­-
+vsquid:UselessImportCheck"FRemove this unused import 'org.springframework.validation.FieldError'.(ÖŒéıÿÿÿÿ8˜û˜­-
+jsquid:S1192E"GDefine a constant instead of duplicating this literal "portal" 3 times.(İÅçæùÿÿÿÿ8¹ô€­-
+ksquid:S4488T"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ÈŞÀ¾ÿÿÿÿÿ8ğÜêÉ­-
+±squid:UselessImportCheck"€Remove this unused import 'org.debugroom.mynavi.sample.continuous.integration.common.apinfra.exception.ValidationErrorResponse'.(ºöíùÿÿÿÿ8˜û˜­-

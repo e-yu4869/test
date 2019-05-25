@@ -1,0 +1,5 @@
+
+Vsquid:S4034":Replace this negation and "anyMatch()" with "noneMatch()".(¼Ìğº8àŠ›¸§-
+fsquid:UselessImportCheck"8Remove this unused import 'java.util.stream.Collectors'.(Óóº´úÿÿÿÿ8ÎÈÇ¹§-
+€squid:S1192"_Define a constant instead of duplicating this literal "Specified user does not exist." 3 times.(½µÒûÿÿÿÿ8ßÜâ¹§-
+gsquid:S1192"FDefine a constant instead of duplicating this literal "E0001" 3 times.(½µÒûÿÿÿÿ8ßÜâ¹§-

@@ -1,0 +1,15 @@
+
+¨squid:UselessImportCheck"xRemove this unused import 'org.debugroom.mynavi.sample.continuous.integration.common.apinfra.exception.ValidationError'.(œ¸±ªüÿÿÿÿ8„·ñ€­-
+vsquid:UselessImportCheck "FRemove this unused import 'org.springframework.validation.FieldError'.(ÖŒéıÿÿÿÿ8¦ş©­-
+€squid:UselessImportCheck$"URemove this unused import 'org.springframework.web.bind.annotation.ExceptionHandler'.(–Œ•¬8¦ş©­-
+ysquid:UselessImportCheck"IRemove this unused import 'org.springframework.validation.BindingResult'.(‹¶¸ùÿÿÿÿ8¦ş©­-
+³squid:UselessImportCheck"‚Remove this unused import 'org.debugroom.mynavi.sample.continuous.integration.common.apinfra.exception.BusinessExceptionResponse'.(¬ÈÏÒÿÿÿÿÿ8¦ş©­-
+±squid:UselessImportCheck"€Remove this unused import 'org.debugroom.mynavi.sample.continuous.integration.common.apinfra.exception.ValidationErrorResponse'.(ºöíùÿÿÿÿ8¦ş©­-
+tsquid:UselessImportCheck"DRemove this unused import 'org.springframework.http.ResponseEntity'.(¶¯ø¦úÿÿÿÿ8¦ş©­-
+hsquid:UselessImportCheck"8Remove this unused import 'java.util.stream.Collectors'.(Óóº´úÿÿÿÿ8„·ñ€­-
+‰squid:UselessImportCheck""YRemove this unused import 'org.springframework.web.bind.MethodArgumentNotValidException'.(Ñîœ¥ÿÿÿÿÿ8¦ş©­-
+psquid:UselessImportCheck"@Remove this unused import 'org.springframework.http.HttpStatus'.(íŸ¤Šúÿÿÿÿ8¦ş©­-
+tsquid:UselessImportCheck"IRemove this unused import 'org.springframework.validation.BindException'.(¬€Ìü8¦ş©­-
+®squid:UselessImportCheck"~Remove this unused import 'org.debugroom.mynavi.sample.continuous.integration.common.apinfra.exception.ValidationErrorMapper'.(ï‰»íÿÿÿÿÿ8¦ş©­-
+csquid:UselessImportCheck"3Remove this unused import 'javax.validation.Valid'.(æ¤ñ÷úÿÿÿÿ8£ƒ•­-
+¦squid:UselessImportCheck"vRemove this unused import 'org.debugroom.mynavi.sample.continuous.integration.common.apinfra.exception.ErrorResponse'.(òÂšÿûÿÿÿÿ8¦ş©­-

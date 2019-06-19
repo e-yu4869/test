@@ -6,7 +6,7 @@ import org.debugroom.mynavi.sample.continuous.integration.common.web.model.UserR
 
 import java.util.List;
 
-public interface MultiServicesCallingService {
+public interface OrchestrateService {
 
     public List<UserResource> addUsers(List<UserResource> addUsers) throws BusinessException;
 

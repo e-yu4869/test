@@ -20,7 +20,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import org.debugroom.mynavi.sample.continuous.integration.common.apinfra.exception.BusinessExceptionResponse;
 import org.debugroom.mynavi.sample.continuous.integration.common.web.model.AddressResource;
 import org.debugroom.mynavi.sample.continuous.integration.common.web.model.EmailResource;
 import org.debugroom.mynavi.sample.continuous.integration.common.apinfra.exception.BusinessException;
@@ -29,11 +28,11 @@ import org.debugroom.mynavi.sample.continuous.integration.common.web.model.UserR
 import org.debugroom.mynavi.sample.continuous.integration.bff.domain.repository.UserResourceRepository;
 
 @RunWith(Enclosed.class)
-public class MultiServiceCallingServiceImplTest {
+public class OrchestrateServiceImplTest {
 
     @RunWith(SpringRunner.class)
     @SpringBootTest(classes = {
-            MultiServiceCallingServiceImplTest.UnitTest.Config.class
+            OrchestrateServiceImplTest.UnitTest.Config.class
     }, webEnvironment = SpringBootTest.WebEnvironment.NONE)
     public static class UnitTest{
 
@@ -46,8 +45,8 @@ public class MultiServiceCallingServiceImplTest {
             }
 
             @Bean
-            MultiServicesCallingService multiServicesCallingService(){
-                return new MultiServiceCallingServiceImpl();
+            OrchestrateService orchestrateService(){
+                return new OrchestrateServiceImpl();
             }
         }
 
@@ -58,7 +57,7 @@ public class MultiServiceCallingServiceImplTest {
         UserResourceRepository userResourceRepositoryMock;
 
         @Autowired
-        MultiServicesCallingService multiServicesCallingService;
+        OrchestrateService orchestrateService;
 
         @Rule
         public ExpectedException expectedException = ExpectedException.none();
@@ -186,14 +185,10 @@ public class MultiServiceCallingServiceImplTest {
                     .build();
 
             BusinessException businessException = new BusinessException();
-            String jsonResponseBody1 = objectMapper.writeValueAsString(
-                    BusinessExceptionResponse.builder()
-                            .businessException(businessException)
-                            .build());
 
             expectedException.expect(BusinessException.class);
 
-            multiServicesCallingService.addUsers(Arrays.asList(
+            orchestrateService.addUsers(Arrays.asList(
                     new UserResource[]{user1, user2}));
 
         }
@@ -242,14 +237,10 @@ public class MultiServiceCallingServiceImplTest {
                     .build();
 
             BusinessException businessException = new BusinessException();
-            String jsonResponseBody1 = objectMapper.writeValueAsString(
-                    BusinessExceptionResponse.builder()
-                            .businessException(businessException)
-                            .build());
 
             expectedException.expect(SystemException.class);
 
-            multiServicesCallingService.addUsers(Arrays.asList(
+            orchestrateService.addUsers(Arrays.asList(
                     new UserResource[]{user1, user2}));
 
         }

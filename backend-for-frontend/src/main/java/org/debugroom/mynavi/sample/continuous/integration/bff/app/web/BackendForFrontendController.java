@@ -23,7 +23,7 @@ import org.debugroom.mynavi.sample.continuous.integration.bff.app.model.Address;
 import org.debugroom.mynavi.sample.continuous.integration.bff.app.model.Email;
 import org.debugroom.mynavi.sample.continuous.integration.bff.app.model.User;
 import org.debugroom.mynavi.sample.continuous.integration.bff.app.model.UserMapper;
-import org.debugroom.mynavi.sample.continuous.integration.bff.domain.service.MultiServicesCallingService;
+import org.debugroom.mynavi.sample.continuous.integration.bff.domain.service.OrchestrateService;
 import org.debugroom.mynavi.sample.continuous.integration.bff.domain.service.SampleService;
 import org.debugroom.mynavi.sample.continuous.integration.common.apinfra.exception.BusinessException;
 import org.debugroom.mynavi.sample.continuous.integration.common.apinfra.exception.ValidationError;
@@ -39,7 +39,7 @@ public class BackendForFrontendController {
     SampleService sampleService;
 
     @Autowired
-    MultiServicesCallingService multiServicesCallingService;
+    OrchestrateService orchestrateService;
 
     @ModelAttribute
     public AddUsersForm setUpForm(){
@@ -87,7 +87,7 @@ public class BackendForFrontendController {
         }
 
         try{
-            model.addAttribute("users", multiServicesCallingService.addUsers(
+            model.addAttribute("users", orchestrateService.addUsers(
                     UserMapper.mapToResource(addUsersForm.getUsers())));
         }catch (BusinessException e){
             if(Objects.equals(e.getCode(), "E0002")){

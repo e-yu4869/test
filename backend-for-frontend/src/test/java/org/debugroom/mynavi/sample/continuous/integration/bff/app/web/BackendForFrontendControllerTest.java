@@ -56,7 +56,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.servlet.ModelAndView;
 
 import org.debugroom.mynavi.sample.continuous.integration.bff.config.TestConfig;
-import org.debugroom.mynavi.sample.continuous.integration.bff.domain.service.MultiServicesCallingService;
+import org.debugroom.mynavi.sample.continuous.integration.bff.domain.service.OrchestrateService;
 import org.debugroom.mynavi.sample.continuous.integration.bff.app.web.selenium.PortalPage;
 import org.debugroom.mynavi.sample.continuous.integration.bff.app.web.selenium.SeleniumProperties;
 import org.debugroom.mynavi.sample.continuous.integration.bff.domain.repository.UserResourceRepository;
@@ -91,7 +91,7 @@ public class BackendForFrontendControllerTest {
         SampleService sampleServiceMock;
 
         @MockBean
-        MultiServicesCallingService multiServicesCallingServiceMock;
+        OrchestrateService orchestrateServiceMock;
 
         @Before
         public void setUp() throws Exception{

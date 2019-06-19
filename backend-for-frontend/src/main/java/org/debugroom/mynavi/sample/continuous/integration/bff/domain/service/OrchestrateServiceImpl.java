@@ -11,7 +11,7 @@ import org.debugroom.mynavi.sample.continuous.integration.common.apinfra.excepti
 import org.debugroom.mynavi.sample.continuous.integration.common.web.model.UserResource;
 
 @Service
-public class MultiServiceCallingServiceImpl implements MultiServicesCallingService {
+public class OrchestrateServiceImpl implements OrchestrateService {
 
     @Autowired
     UserResourceRepository userResourceRepository;
@@ -24,7 +24,7 @@ public class MultiServiceCallingServiceImpl implements MultiServicesCallingServi
             try{
                 userResources.add(userResourceRepository.save(addUserResource));
             }catch (BusinessException e){
-                // fallback for SAGA Pattern.
+                // Rollback for SAGA Pattern.
                 for(UserResource userResource : userResources){
                     userResourceRepository.delete(userResource.getUserId());
                 }

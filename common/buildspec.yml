@@ -9,11 +9,7 @@ phases:
       docker: 18
   build:
     commands:
-      - mvn -f common/pom.xml sonar:sonar -Dsonar.host.url=${env.SONAR_HOST_URL} -Dsonar.login=${env.SONAR_LOGIN}
-  post_build:
-    commands:
-      - echo Build completed on `date`
-      - mvn -f common/pom.xml package
+      - mvn -f common/pom.xml package sonar:sonar -Dsonar.host.url=${env.SONAR_HOST_URL} -Dsonar.login=${env.SONAR_LOGIN}
 artifacts:
   files:
     - target/mynavi-sample-continuous-integration-common-0.0.1-SNAPSHOT.jar

@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.debugroom</groupId>
-	<artifactId>mynavi-sample-backend-for-frontend</artifactId>
+	<artifactId>mynavi-sample-continuous-integration-backend-for-frontend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>mynavi-sample-backend-for-frontend</name>
 	<description>Demo project for Spring Boot</description>

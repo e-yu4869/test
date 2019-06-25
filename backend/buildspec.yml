@@ -1,0 +1,16 @@
+version: 0.2
+env:
+  parameter-store:
+    SONAR_HOST_URL: "SONAR_HOST_URL"
+    SONAR_LOGIN: "SONAR_LOGIN"
+phases:
+  install:
+    runtime-versions:
+      docker: 18
+  build:
+    commands:
+      - mvn -f common/pom.xml install
+      - mvn -f backend/pom.xml package sonar:sonar -Dsonar.host.url=${SONAR_HOST_URL} -Dsonar.login=${SONAR_LOGIN}
+artifacts:
+  files:
+    - backend/target/mynavi-sample-continuous-integration-backend-0.0.1-SNAPSHOT.jar

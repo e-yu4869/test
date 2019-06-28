@@ -78,6 +78,10 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<configuration>
 					<forkMode>always</forkMode>
+					<systemPropertyVariables>
+					  <user.language>ja</user.language>
+					  <user.region>JP</user.region>
+					</systemPropertyVariables>
 				</configuration>
 			</plugin>
 		</plugins>

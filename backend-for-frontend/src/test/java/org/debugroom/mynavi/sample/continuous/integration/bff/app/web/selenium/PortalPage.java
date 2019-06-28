@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class PortalPage {
 
-    @Autowired
+    @Autowired(required = false)
     private WebDriver webDriver;
 
     public void setAddUserForm1(String firstName, String familyName, String loginId,

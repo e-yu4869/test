@@ -41,6 +41,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.HttpStatus;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -317,6 +318,7 @@ public class BackendForFrontendControllerTest {
             SeleniumProperties seleniumProperties;
 
             @Bean
+            @Profile("dev")
             WebDriver webDriver(){
                 System.setProperty("webdriver.chrome.driver", seleniumProperties.getChromeDriverPath());
                 return new ChromeDriver();
@@ -331,7 +333,7 @@ public class BackendForFrontendControllerTest {
         @LocalServerPort
         private int port;
 
-        @Autowired
+        @Autowired(required = false)
         WebDriver webDriver;
 
         @Autowired

@@ -2,4 +2,4 @@ spring:
   profiles:
     active: dev
 service:
-  dns: http://internal-mynavi-sample-alb-private-xxxxxxx.ap-northeast-1.elb.amazonaws.com
+  dns: ${SERVICE_DNS}

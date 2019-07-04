@@ -22,7 +22,7 @@ phases:
       - mvn -f common/pom.xml install
       - mvn -P e2e-test -f backend-for-frontend/pom.xml test sonar:sonar -Dspring.profiles.active="dev" -Dsonar.host.url=${SONAR_HOST_URL} -Dsonar.login=${SONAR_LOGIN}
       - export ARTIFACT_FILENAME="test-evidence-"`date "+%Y%m%d_%H%M%S"`.zip
-      - zip backend-for-frontend/test-evidence $ARTIFACT_FILENAME
+      - zip -r $ARTIFACT_FILENAME backend-for-frontend/test-evidence
 artifacts:
   files:
     - $ARTIFACT_FILENAME

@@ -3,6 +3,7 @@ env:
   parameter-store:
     SONAR_HOST_URL: "SONAR_HOST_URL"
     SONAR_LOGIN: "SONAR_LOGIN_BACKEND_FOR_FRONTEND"
+    SERVICE_DNS: "SERIVCE_DNS_STAGING"
 phases:
   install:
     runtime-versions:

@@ -23,4 +23,4 @@ phases:
       - mvn -P e2e-test -f backend-for-frontend/pom.xml test sonar:sonar -Dspring.profiles.active="dev" -Dsonar.host.url=${SONAR_HOST_URL} -Dsonar.login=${SONAR_LOGIN}
 artifacts:
   files:
-    - backend-for-frontend/target/mynavi-sample-continuous-integration-backend-for-frontend-0.0.1-SNAPSHOT.jar
+    - backend-for-frontend/test-evidence

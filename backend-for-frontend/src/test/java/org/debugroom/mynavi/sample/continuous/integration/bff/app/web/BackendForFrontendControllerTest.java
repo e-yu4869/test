@@ -25,16 +25,17 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.experimental.runners.Enclosed;
 import org.junit.runner.RunWith;
-
 import org.junit.runners.MethodSorters;
+
 import org.mockito.Mockito;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import org.openqa.selenium.chrome.ChromeOptions;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -71,14 +72,13 @@ import org.debugroom.mynavi.sample.continuous.integration.common.web.model.Addre
 import org.debugroom.mynavi.sample.continuous.integration.common.web.model.EmailResource;
 import org.debugroom.mynavi.sample.continuous.integration.common.web.model.UserResource;
 
-
 @RunWith(Enclosed.class)
 public class BackendForFrontendControllerTest {
 
     @RunWith(SpringRunner.class)
     @WebMvcTest(controllers = BackendForFrontendController.class)
-    @Category(org.debugroom.mynavi.sample.continuous.integration.common.apinfra.test.junit.UnitTest.class)
     @ContextConfiguration(classes = {TestConfig.ControllerTestConfig.class})
+    @Category(org.debugroom.mynavi.sample.continuous.integration.common.apinfra.test.junit.UnitTest.class)
     public static class UnitTest{
 
         WebClient webClient;
@@ -322,6 +322,18 @@ public class BackendForFrontendControllerTest {
             @Profile("dev")
             WebDriver webDriver(){
                 System.setProperty("webdriver.chrome.driver", seleniumProperties.getChromeDriverPath());
+                /*
+                 * This option is setting for as follow error in Ubuntu CodeBuild environment.
+                 *
+                 * Caused by: org.springframework.beans.factory.BeanCreationException:
+                 * Error creating bean with name 'webDriver' defined in
+                 * org.debugroom.mynavi.sample.continuous.integration.bff.app.web.BackendForFrontendControllerTest$EndToEndTest$Config:
+                 * Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException:
+                 * Failed to instantiate [org.openqa.selenium.WebDriver]: Factory method 'webDriver' threw exception;
+                 * nested exception is org.openqa.selenium.WebDriverException:
+                 * unknown error: Chrome failed to start: exited abnormally
+                 * See : https://stackoverflow.com/questions/50642308/webdriverexception-unknown-error-devtoolsactiveport-file-doesnt-exist-while-t
+                 */
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("--headless");
                 options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems

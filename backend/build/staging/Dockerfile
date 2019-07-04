@@ -29,4 +29,4 @@ RUN ln -sf  /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 
 EXPOSE 8080
 
-CMD java -jar -Dspring.profiles.active=staging /usr/local/mynavi-sample-continuous-integration/backend/target/mynavi-sample-continuous-integration-backend-0.0.1-SNAPSHOT.jar
+CMD java -jar -Dspring.profiles.active=dev /usr/local/mynavi-sample-continuous-integration/backend/target/mynavi-sample-continuous-integration-backend-0.0.1-SNAPSHOT.jar

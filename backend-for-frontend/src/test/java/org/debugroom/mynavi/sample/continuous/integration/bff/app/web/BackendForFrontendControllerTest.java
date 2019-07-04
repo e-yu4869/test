@@ -323,6 +323,7 @@ public class BackendForFrontendControllerTest {
             WebDriver webDriver(){
                 System.setProperty("webdriver.chrome.driver", seleniumProperties.getChromeDriverPath());
                 ChromeOptions options = new ChromeOptions();
+                options.addArguments("--headless");
                 options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
                 options.addArguments("start-maximized"); // open Browser in maximized mode
                 options.addArguments("disable-infobars"); // disabling infobars

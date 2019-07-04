@@ -34,6 +34,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -321,7 +322,14 @@ public class BackendForFrontendControllerTest {
             @Profile("dev")
             WebDriver webDriver(){
                 System.setProperty("webdriver.chrome.driver", seleniumProperties.getChromeDriverPath());
-                return new ChromeDriver();
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
+                options.addArguments("start-maximized"); // open Browser in maximized mode
+                options.addArguments("disable-infobars"); // disabling infobars
+                options.addArguments("--disable-extensions"); // disabling extensions
+                options.addArguments("--disable-gpu"); // applicable to windows os only
+                options.addArguments("--no-sandbox"); // Bypass OS security model
+                return new ChromeDriver(options);
             }
 
 

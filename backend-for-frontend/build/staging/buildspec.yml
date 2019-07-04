@@ -7,7 +7,7 @@ env:
     DOCKER_PASSWORD: "DOCKER_PASSWORD"
     DOCKER_REPO : "DOCKER_REPO"
     IMAGE_REPO_NAME: "BACKEND_FOR_FRONTEND_IMAGE_REPO_NAME"
-    IMAGE_TAG: "BACKEND_FOR_FRONTEND_IMAGE_TAG"
+    IMAGE_TAG: "BACKEND_FOR_FRONTEND_IMAGE_TAG_STAGING"
 phases:
   install:
     runtime-versions:
@@ -31,7 +31,7 @@ phases:
       - echo Pushing the Docker image...
 #      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
       - docker push $IMAGE_REPO_NAME:$IMAGE_TAG
-      - printf '[{"name":"mynavi-sample-continuous-delivery-bff","imageUri":"%s"}]' $IMAGE_REPO_NAME:$IMAGE_TAG > imagedefinitions.json
+      - printf '[{"name":"mynavi-sample-continuous-delivery-bff-staging","imageUri":"%s"}]' $IMAGE_REPO_NAME:$IMAGE_TAG > imagedefinitions.json
 artifacts:
   files:
     - imagedefinitions.json

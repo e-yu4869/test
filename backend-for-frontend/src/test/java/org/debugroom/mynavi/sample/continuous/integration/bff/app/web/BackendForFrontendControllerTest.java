@@ -37,6 +37,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -80,6 +81,9 @@ public class BackendForFrontendControllerTest {
     @ContextConfiguration(classes = {TestConfig.ControllerTestConfig.class})
     @Category(org.debugroom.mynavi.sample.continuous.integration.common.apinfra.test.junit.UnitTest.class)
     public static class UnitTest{
+
+        @Value("#{servletContext.contextPath}")
+        private String contextPath;
 
         WebClient webClient;
 
@@ -172,7 +176,7 @@ public class BackendForFrontendControllerTest {
 
         @Test
         public void getUsersTest() throws Exception{
-            HtmlPage page = webClient.getPage("http://localhost:8080/getUsers");
+            HtmlPage page = webClient.getPage("http://localhost:8080" + contextPath + "/getUsers");
             assertThat(page.getTitleText(), is("GetUsers"));
             assertThat(page.getElementById("td-firstName-0")
                     .getFirstChild().asText(), is("太郎"));
@@ -222,7 +226,7 @@ public class BackendForFrontendControllerTest {
 
         @Test
         public void isUsableLoginIdNormalTest() throws Exception{
-            HtmlPage page = webClient.getPage("http://localhost:8080/portal");
+            HtmlPage page = webClient.getPage("http://localhost:8080"+ contextPath + "/portal");
             HtmlButton htmlButton = (HtmlButton)page.getElementById("isUsableLoginIdButton-0");
             HtmlTextInput loginIdInput = (HtmlTextInput)page.getElementById("loginId-0");
             loginIdInput.setText("taro.mynavi");
@@ -236,7 +240,7 @@ public class BackendForFrontendControllerTest {
 
         @Test
         public void isUsableLoginIdAbrmalTest() throws Exception{
-            HtmlPage page = webClient.getPage("http://localhost:8080/portal");
+            HtmlPage page = webClient.getPage("http://localhost:8080" + contextPath + "/portal");
             HtmlButton htmlButton = (HtmlButton)page.getElementById("isUsableLoginIdButton-0");
             HtmlTextInput loginIdInput = (HtmlTextInput)page.getElementById("loginId-0");
             loginIdInput.setText("jiro.mynavi");
@@ -348,6 +352,9 @@ public class BackendForFrontendControllerTest {
 
         }
 
+        @Value("#{servletContext.contextPath}")
+        private String contextPath;
+
         @Autowired
         SeleniumProperties seleniumProperties;
 
@@ -371,7 +378,7 @@ public class BackendForFrontendControllerTest {
 
         @Test
         public void getUsersTest(){
-            webDriver.get("http://localhost:" + port + "/portal");
+            webDriver.get("http://localhost:" + port + contextPath + "/portal");
             webDriver.findElement(By.id("getUsersButton")).click();
             File file = ((TakesScreenshot) webDriver).getScreenshotAs(OutputType.FILE);
             file.renameTo(new File(seleniumProperties.getEvidencePath() + "/getUsersTest_screenshot.png"));
@@ -393,7 +400,7 @@ public class BackendForFrontendControllerTest {
             }catch (BusinessException e){
                 // if user does not exist, continue to process.
             }
-            webDriver.get("http://localhost:" + port + "/portal");
+            webDriver.get("http://localhost:" + port + contextPath + "/portal");
             webDriver.findElement(By.id("addFormButton-0")).click();
             portalPage.setAddUserForm1("taro", "mynavi",
                     "taro.mynavi1", "100-0000", "Tokyo　Chiyoda",
@@ -412,7 +419,7 @@ public class BackendForFrontendControllerTest {
 
         @Test
         public void addUsers_2_AbnormalTest(){
-            webDriver.get("http://localhost:" + port + "/portal");
+            webDriver.get("http://localhost:" + port + contextPath + "/portal");
             webDriver.findElement(By.id("addFormButton-0")).click();
             portalPage.setAddUserForm1("saburo", "mynavi",
                     "saburo.mynavi1", "100-0000", "Tokyo　Minato",

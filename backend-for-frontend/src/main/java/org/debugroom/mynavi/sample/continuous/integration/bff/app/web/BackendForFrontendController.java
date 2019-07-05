@@ -54,8 +54,13 @@ public class BackendForFrontendController {
         return addUsersForm;
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = "/index.html")
+    public String index(){
+        return "forward:portal";
+    }
+
     @RequestMapping(method = RequestMethod.GET, value = "portal")
-    public String index(Model model){
+    public String portal(Model model){
         return "portal";
     }
 

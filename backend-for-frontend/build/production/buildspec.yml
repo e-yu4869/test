@@ -7,6 +7,7 @@ env:
     DOCKER_PASSWORD: "DOCKER_PASSWORD"
     DOCKER_REPO : "DOCKER_REPO"
     IMAGE_REPO_NAME: "BACKEND_FOR_FRONTEND_IMAGE_REPO_NAME"
+    IMAGE_TAG_STAGING: "BACKEND_FOR_FRONTEND_IMAGE_TAG_STAGING"
     IMAGE_TAG: "BACKEND_FOR_FRONTEND_IMAGE_TAG_PRODUCTION"
 phases:
   install:
@@ -22,6 +23,7 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
+      - docker pull $IMAGE_REPO_NAME:$IMAGE_TAG_STAGING
       - docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG backend-for-frontend/build/production
 #    - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
       - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG $IMAGE_REPO_NAME:$IMAGE_TAG

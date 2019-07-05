@@ -21,7 +21,7 @@
 
 <h2>Please call backend get users service.</h2>
 
-<form id="getForm" action="/getUsers" method="get" >
+<form id="getForm" action="getUsers" method="get" >
   <button id="getUsersButton" name="getUsersButton" class="main-button" type="submit" value="Submit" >Get user</button>
 </form>
 
@@ -57,7 +57,7 @@
               <span th:text="*{errorMessage != null && errorLoginId == addUsersForm.users[__${status.index}__].loginId } ? ${errorMessage} : ''"></span>
           </td>
           <td>
-            <button th:id="|isUsableLoginIdButton-${status.index}|" type="button" th:attr="onclick='isUsableLoginId(__${status.index}__)'">Usable ID?</button>
+            <button th:id="|isUsableLoginIdButton-${status.index}|" type="button" th:attr="onclick='isUsableLoginId(__${status.index}__)'" th:value="${#request.contextPath}">Usable ID?</button>
           </td>
         </tr>
         <tr th:id="|addForm-${status.index}_address_1|">

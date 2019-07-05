@@ -98,7 +98,7 @@ function isUsableLoginId(userId) {
     if(messagePanel != null){
         messagePanel.remove();
     }
-    $.get("/isUsableLoginId?loginId=" + $("#loginId-" + userId).val(), function (data) {
+    $.get($("#isUsableLoginIdButton-0").val() + "/isUsableLoginId?loginId=" + $("#loginId-" + userId).val(), function (data) {
         $("#loginId-" + userId)
             .after('<span id="message-panel">' + data.toString() + ' </span>');
     });

@@ -8,7 +8,6 @@ env:
     DOCKER_REPO : "DOCKER_REPO"
     IMAGE_REPO_NAME: "BACKEND_FOR_FRONTEND_IMAGE_REPO_NAME"
     IMAGE_TAG: "BACKEND_FOR_FRONTEND_IMAGE_TAG_PRODUCTION"
-    SERVICE_DNS: "SERVICE_DNS_PRODUCTION"
 phases:
   install:
     runtime-versions:
@@ -23,7 +22,7 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
-      - docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG backend-for-frontend/build/production --build-arg SERVICE_DNS=$SERVICE_DNS
+      - docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG backend-for-frontend/build/production
 #    - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
       - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG $IMAGE_REPO_NAME:$IMAGE_TAG
   post_build:

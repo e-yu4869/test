@@ -11,4 +11,16 @@
         <module>backend</module>
         <module>common</module>
     </modules>
+    <dependencies>
+  <dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-test</artifactId>
+    <scope>test</scope>
+  </dependency>
+  <dependency>
+  <groupId>org.hsqldb</groupId>
+  <artifactId>hsqldb</artifactId>
+  <scope>runtime</scope>
+</dependency>
+</dependencies>
 </project>

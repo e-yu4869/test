@@ -2,26 +2,25 @@ version: 0.2
 env:
   parameter-store:
     SONAR_HOST_URL: "SONAR_HOST_URL"
-    SONAR_LOGIN: "SONAR_LOGIN_BACKEND"
+    SONAR_LOGIN: "SONAR_LOGIN_BACKEND_FOR_FRONTEND"                  # ...(A)
 phases:
   install:
     runtime-versions:
-      docker: 18
+      docker: 18                                                     # ...(B)
     commands:
       - apt-get update -y
-      - apt-get -y install language-pack-ja-base language-pack-ja
+      - apt-get -y install language-pack-ja-base language-pack-ja    # ...(C)
   pre_build:
     commands:
       - /usr/sbin/update-locale LANG=ja_JP.UTF-8 LANGUAGE="ja_JP:ja"
       - export LC_ALL="ja_JP.UTF-8"
       - locale-gen ja_JP.UTF-8
-      - export LANG=ja_JP.UTF-8
-      - export LANGUAGE="ja_JP:ja"
-      - dpkg-reconfigure locales
+      - dpkg-reconfigure locales                                     # ...(D)
   build:
     commands:
-      - mvn -f common/pom.xml install
-      - mvn -f backend/pom.xml package sonar:sonar -Dsonar.host.url=${SONAR_HOST_URL} -Dsonar.login=${SONAR_LOGIN}
+      - mvn -f common/pom.xml install                                # ...(E)
+      - mvn -f backend-for-frontend/pom.xml package sonar:sonar -Dspring.profiles.active="test" -Dsonar.host.url=${SONAR_HOST_URL} -Dsonar.login=${SONAR_LOGIN}
+                                                                     # ...(F)
 artifacts:
   files:
-    - backend/target/mynavi-sample-continuous-integration-backend-0.0.1-SNAPSHOT.jar
+    - backend-for-frontend/target/mynavi-sample-continuous-integration-backend-for-frontend-0.0.1-SNAPSHOT.jar
